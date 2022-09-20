@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@beginalive/components/button": ["libs/components/button/src/index.ts"],
+      "@beginalive/components/editor": ["libs/components/editor/src/index.ts"],
+      "@beginalive/components/ui": ["libs/components/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
