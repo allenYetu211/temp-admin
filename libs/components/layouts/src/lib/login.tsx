@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-26 23:15:20
- * @LastEditTime: 2022-09-26 23:44:10
+ * @LastEditTime: 2022-09-27 00:44:56
  */
 
 import type {
@@ -21,12 +21,23 @@ import {
   Checkbox,
   Button,
   Paper
- } from '@mui/material'
+} from '@mui/material'
+
+import { useSingIn } from './use-sign-in'
 
 export const LoginLayout: FC<PropsWithChildren> = ({
   children,
   ...props
 }) => {
+
+  const {
+    user,
+    pwd,
+    submit,
+    handlePwd,
+    handleUser
+  } = useSingIn()
+
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
       <CssBaseline />
@@ -55,12 +66,12 @@ export const LoginLayout: FC<PropsWithChildren> = ({
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-           U
+            U
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate  sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -70,6 +81,8 @@ export const LoginLayout: FC<PropsWithChildren> = ({
               name="email"
               autoComplete="email"
               autoFocus
+              value={user}
+              onChange={(e) => { handleUser(e.target.value) }}
             />
             <TextField
               margin="normal"
@@ -80,6 +93,8 @@ export const LoginLayout: FC<PropsWithChildren> = ({
               type="password"
               id="password"
               autoComplete="current-password"
+              value={pwd}
+              onChange={(e) => { handlePwd(e.target.value) }}
             />
 
             <Button
@@ -87,6 +102,7 @@ export const LoginLayout: FC<PropsWithChildren> = ({
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={submit}
             >
               Sign In
             </Button>
