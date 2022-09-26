@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-20 16:46:44
- * @LastEditTime: 2022-09-21 00:33:04
+ * @LastEditTime: 2022-09-23 17:32:55
  */
 import { useRef, useState, useCallback, PropsWithChildren } from 'react';
 import { createEditor, Descendant, Element as SlateElement } from 'slate';
@@ -26,7 +26,6 @@ export function BaseEditor() {
   ]);
 
   const onChange = (newValue: Descendant[]) => {
-    console.log('newValue', newValue);
   };
 
   return (
