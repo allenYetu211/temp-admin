@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-27 00:14:30
- * @LastEditTime: 2022-09-28 01:02:50
+ * @LastEditTime: 2022-10-10 00:02:03
  */
 import { atom, useAtom } from 'jotai'
 import { useCallback, useMemo } from 'react';
@@ -24,12 +24,10 @@ export const useSingIn = () => {
   }
 
   const submit = (val: any) => {
-    console.log('object', val);
     const { data, isLoading, error } = useRequestHooks('/user/login', {
       user,
       pwd
     })
-
   }
 
   return {

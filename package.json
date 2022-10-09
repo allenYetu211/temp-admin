@@ -11,11 +11,11 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.6",
-    "@mui/material": "^5.10.6",
+    "@mui/base": "5.0.0-alpha.100",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "antd": "^4.23.4",
     "clsx": "^1.2.1",
     "core-js": "^3.6.5",
     "jotai": "^1.8.4",

@@ -7,7 +7,7 @@ import { createEditor, Descendant, Element as SlateElement } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 
 import { EditorTooBar } from './editor-toolbar';
-import { styled } from '@beginalive/components/ui';
+// import { styled } from '@beginalive/components/ui';
 
 import { Leaf } from './base-leaf';
 import { Element } from './base-element';
@@ -31,7 +31,7 @@ export function BaseEditor() {
   return (
     <Slate editor={editor} value={initialValue.current} onChange={onChange}>
       <EditorTooBar />
-      <EditorContainerUI>
+      {/* <EditorContainerUI> */}
         <Editable
           renderElement={renderElement}
           renderLeaf={renderLeaf}
@@ -39,11 +39,11 @@ export function BaseEditor() {
           spellCheck
           autoFocus
         />
-      </EditorContainerUI>
+      {/* </EditorContainerUI> */}
     </Slate>
   );
 }
 
-const EditorContainerUI = styled('div')({
-  padding: '10px',
-});
+// const EditorContainerUI = styled('div')({
+//   padding: '10px',
+// });
