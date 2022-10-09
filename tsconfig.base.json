@@ -20,7 +20,8 @@
       "@beginalive/components/layouts": [
         "libs/components/layouts/src/index.ts"
       ],
-      "@beginalive/components/ui": ["libs/components/ui/src/index.ts"]
+      "@beginalive/components/ui": ["libs/components/ui/src/index.ts"],
+      "@beginalive/fetch": ["libs/fetch/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

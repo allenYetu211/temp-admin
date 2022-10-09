@@ -15,8 +15,6 @@ export function LoginPage() {
   })
 
   return (
-    <LoginLayout>
-
-    </LoginLayout>
+    <LoginLayout />
   )
 }

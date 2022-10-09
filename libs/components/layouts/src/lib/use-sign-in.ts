@@ -1,9 +1,10 @@
 /*
  * @Date: 2022-09-27 00:14:30
- * @LastEditTime: 2022-09-27 00:40:05
+ * @LastEditTime: 2022-09-28 01:02:50
  */
 import { atom, useAtom } from 'jotai'
 import { useCallback, useMemo } from 'react';
+import { API, useRequestHooks } from '@beginalive/fetch'
 
 type SingInType = { password: string, username: string }
 
@@ -22,8 +23,12 @@ export const useSingIn = () => {
     set_pwd(val)
   }
 
-  const submit = () => {
-    console.log('submit', user, pwd)
+  const submit = (val: any) => {
+    console.log('object', val);
+    const { data, isLoading, error } = useRequestHooks('/user/login', {
+      user,
+      pwd
+    })
 
   }
 
