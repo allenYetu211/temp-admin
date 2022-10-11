@@ -1,20 +1,22 @@
 /*
  * @Date: 2022-09-25 12:56:55
- * @LastEditTime: 2022-09-26 23:17:27
+ * @LastEditTime: 2022-10-12 01:13:31
  */
-import { useState } from 'react';
-import { LoginLayout } from '@beginalive/components/layouts'
-
-
+import styled from '@emotion/styled'
+import { LoginContainer } from '@beginalive/components/layouts'
+import LoginBg from '../../assets/images/login-bg.png'
 
 export function LoginPage() {
-
-  const [loginInfo, set_loginInfo] = useState<{ password: string, username: string }>({
-    password: '',
-    username: ''
-  })
-
   return (
-    <LoginLayout />
+    <>
+      <LoginContainer />
+      <BAImag src={LoginBg}/>
+    </>
+
   )
 }
+
+const BAImag = styled('img')({
+  maxWidth: '100%',
+  objectFit: 'contain'
+})

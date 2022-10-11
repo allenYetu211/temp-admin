@@ -3,4 +3,4 @@
  * @LastEditTime: 2022-09-27 00:13:58
  */
 
-export * from './lib/login';
+export * from './login';
