@@ -1,19 +1,40 @@
-import useSwr from 'swr';
-import { action } from './action';
-import { API } from './interface'
+/*
+ * @Date: 2022-09-28 00:22:58
+ * @LastEditTime: 2022-10-14 00:14:55
+ */
+import useSwr, { KeyedMutator } from 'swr';
+import { API, ResultType, MethodType } from './interface'
+import Fetch from './HTTPBase'
 
-function CommonSWR(id: keyof API, fun: any, ...other: any) {
-  const { data, error } = useSwr(id, () =>
-    fun({ ...other })
+
+
+const API_HOST = 'http://localhost:8080'
+
+const F = new Fetch(API_HOST)
+
+function CommonSWR<URL extends keyof API>(url: URL, method: MethodType, ...other: any): {
+  data: ResultType[URL] | undefined,
+  isLoading: boolean,
+  mutate: KeyedMutator<ResultType[URL]>
+} {
+  const { data, error, mutate } = useSwr(url, () =>
+    F.FetchAction(url, method, { ...other })
   );
 
   return {
-    data: data,
+    data,
     isLoading: !error && !data,
-    error: error,
+    mutate
   };
 }
 
-export  function useRequestHooks(id: keyof API, ...other: any) {
-  return CommonSWR(id, action[id], other)
+
+/**
+ *
+ * @param params
+ */
+export async function FetchSingIn(params: { username: string, password: string }) {
+  // return CommonSWR(, 'post', params)
+  return await F.FetchAction('/auth/signin', 'post', params)
 }
+

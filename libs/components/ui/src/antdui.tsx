@@ -1,4 +1,4 @@
-import { Col, Row, Typography } from 'antd';
+import { Col, Row, Typography, notification } from 'antd';
 
 
 /**
@@ -7,3 +7,4 @@ import { Col, Row, Typography } from 'antd';
 export const UCol = Col;
 export const URow = Row;
 export const UTypography = Typography
+export const UNotification = notification

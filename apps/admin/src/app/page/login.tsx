@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-09-25 12:56:55
- * @LastEditTime: 2022-10-12 01:13:31
+ * @LastEditTime: 2022-10-14 00:44:17
  */
 import styled from '@emotion/styled'
 import { LoginContainer } from '@beginalive/components/layouts'
@@ -10,7 +10,7 @@ export function LoginPage() {
   return (
     <>
       <LoginContainer />
-      <BAImag src={LoginBg}/>
+      {/* <BAImag src={LoginBg}/> */}
     </>
 
   )

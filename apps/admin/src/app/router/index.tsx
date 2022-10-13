@@ -7,12 +7,14 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import { Editor } from '@beginalive/components/editor';
 import { LoginPage } from '../page/login'
+import { DashboardPage } from '../page/dashboard'
 
 export function Router() {
   return (
     <>
       <Routes>
         <Route path="/"  element={<LoginPage />} />
+        <Route path="/dashboard"  element={<DashboardPage />} />
       </Routes>
       {/* END: routes */}
     </>

@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-11 22:58:07
- * @LastEditTime: 2022-10-12 01:02:40
+ * @LastEditTime: 2022-10-13 10:12:50
  */
 
 import { FC, PropsWithChildren, useImperativeHandle } from 'react'
@@ -31,7 +31,8 @@ const FormComp: FC<PropsWithChildren<FormCompoProps>> = (props) => {
 
   return (
     <>
-      <FormUI form={form} {...other} onFinish={onFinish}>
+      <FormUI
+      form={form} {...other} onFinish={onFinish}>
         {
           columns.map((item) => {
             return (

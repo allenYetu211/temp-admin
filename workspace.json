@@ -7,6 +7,7 @@
     "components-editor": "libs/components/editor",
     "components-layouts": "libs/components/layouts",
     "components-ui": "libs/components/ui",
-    "fetch": "libs/fetch"
+    "fetch": "libs/fetch",
+    "tools": "libs/tools"
   }
 }
