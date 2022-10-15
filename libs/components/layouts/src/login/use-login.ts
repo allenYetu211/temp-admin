@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-12 00:21:51
- * @LastEditTime: 2022-10-14 00:52:00
+ * @LastEditTime: 2022-10-15 17:19:02
  */
 import { useRef } from 'react';
 import { FetchSingIn } from '@beginalive/fetch'
@@ -24,7 +24,6 @@ export function useLogin() {
       navigate('/dashboard')
     } catch (e: unknown) {
       const error = e as any
-      // console.log('object', await error.data, error.status);
       if (error.status === 401) {
         UNotification.error({
           message: '登陆错误',

@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-12 00:24:33
- * @LastEditTime: 2022-10-12 00:30:51
+ * @LastEditTime: 2022-10-15 17:52:55
  */
 import { FC, PropsWithChildren } from 'react'
 import { Button } from 'antd'
@@ -20,7 +20,6 @@ const BaseButtonComp: FC<PropsWithChildren<ButtonProps>> = (props) => {
 
 const ButtonUI = styled(Button)({
   width: '100%',
-  borderRadius: '3px'
 })
 
 export default BaseButtonComp;

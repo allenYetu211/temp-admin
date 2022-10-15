@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-11 22:58:07
- * @LastEditTime: 2022-10-13 10:12:50
+ * @LastEditTime: 2022-10-15 17:14:49
  */
 
 import { FC, PropsWithChildren, useImperativeHandle } from 'react'
@@ -14,7 +14,8 @@ interface FormCompoProps {
     label: string
     name: string
     node: JSX.Element
-    rules: Rule[]
+    rules: Rule[],
+    initialValue?: any
   }[],
   CRef: React.MutableRefObject<any>,
   onFinish: (value: any) => void
@@ -32,11 +33,11 @@ const FormComp: FC<PropsWithChildren<FormCompoProps>> = (props) => {
   return (
     <>
       <FormUI
-      form={form} {...other} onFinish={onFinish}>
+        form={form} {...other} onFinish={onFinish}>
         {
           columns.map((item) => {
             return (
-              <Form.Item name={item.name} rules={item.rules} key={item.name}>
+              <Form.Item name={item.name} rules={item.rules} key={item.name} initialValue={item.initialValue}>
                 {item.node}
               </Form.Item>
             )

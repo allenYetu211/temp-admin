@@ -1,12 +1,12 @@
 /*
  * @Date: 2022-09-20 12:02:43
- * @LastEditTime: 2022-09-25 13:05:12
+ * @LastEditTime: 2022-10-15 19:19:02
  */
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-
-import Router from './app/router';
+import { AppRouter } from './app/page';
+import '../styles.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <Router />
+      <AppRouter />
     </BrowserRouter>
   </StrictMode>
 );

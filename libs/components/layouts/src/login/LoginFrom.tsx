@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-11 23:29:05
- * @LastEditTime: 2022-10-12 01:00:31
+ * @LastEditTime: 2022-10-15 17:18:15
  */
 import { useRef } from 'react'
 import { UForm, UInput, UButton, UTypography } from '@beginalive/components/ui'
@@ -15,11 +15,13 @@ export const LoginForm = () => {
     {
       name: 'username', label: '用户名',
       rules: [{ required: true, message: '请输入用户名' }],
+      initialValue: 'OYang',
       node: <UInput placeholder='请输入用户名' prefix={<UserOutlined />} />
     },
     {
       name: 'password', label: '密码',
       rules: [{ required: true, message: '请输入密码' }],
+      initialValue: 'OYang',
       node: <UInput type='Password' prefix={<LockOutlined />} placeholder='请输入密码' />
     },
   ])
@@ -40,7 +42,7 @@ export const LoginForm = () => {
         <Title level={2}>Begin Alive</Title>
 
 
-        <UForm columns={current} CRef={childrenRef} onFinish={handleSubmitFinish} />
+        <UForm  columns={current} CRef={childrenRef} onFinish={handleSubmitFinish} />
 
         <UButton type='primary' onClick={handleSubmit}>
           登陆

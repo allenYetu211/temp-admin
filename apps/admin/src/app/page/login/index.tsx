@@ -1,6 +1,6 @@
 /*
- * @Date: 2022-09-25 12:56:55
- * @LastEditTime: 2022-10-14 00:44:17
+ * @Date: 2022-10-15 17:19:39
+ * @LastEditTime: 2022-10-15 17:22:37
  */
 import styled from '@emotion/styled'
 import { LoginContainer } from '@beginalive/components/layouts'

@@ -12,3 +12,5 @@ export * from './Button'
 
 export * from './antdui'
 
+export * from './color'
+
