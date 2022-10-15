@@ -44,8 +44,7 @@
         "linter": "eslint",
         "babel": true
       },
-      "component": {
-      },
+      "component": {},
       "library": {
         "linter": "eslint"
       }

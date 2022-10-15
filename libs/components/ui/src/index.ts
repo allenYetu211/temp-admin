@@ -9,6 +9,7 @@
 export { default as UForm } from './Form'
 export { default as UInput } from './Input'
 export * from './Button'
+export * from './Box'
 
 export * from './antdui'
 

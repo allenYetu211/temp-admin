@@ -5,6 +5,7 @@
     "admin": "apps/admin",
     "admin-e2e": "apps/admin-e2e",
     "components-editor": "libs/components/editor",
+    "components-layouts": "libs/components/layouts",
     "components-pages": "libs/components/pages",
     "components-ui": "libs/components/ui",
     "fetch": "libs/fetch",
