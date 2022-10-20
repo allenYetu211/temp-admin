@@ -7,9 +7,10 @@
 
 
 export { default as UForm } from './Form'
-export { default as UInput } from './Input'
+export { default as UInput, UTextArea } from './Input'
 export * from './Button'
 export * from './Box'
+export * from './Tag'
 
 export * from './antdui'
 

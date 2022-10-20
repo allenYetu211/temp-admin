@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-15 19:35:40
- * @LastEditTime: 2022-10-15 22:23:23
+ * @LastEditTime: 2022-10-16 00:14:22
  */
 
 import { BeginContainerComp, BeginSliderComp } from '@beginalive/components/layouts'
@@ -38,13 +38,4 @@ const Container = styled('div')({
   '& > div:last-child': {
     flex: 1
   }
-
 })
-
-// const ContainerBeginSliderComp = styled(BeginSliderComp)({
-//   width: 200
-// })
-
-// const ContainerBeginContainerComp = styled(BeginContainerComp)({
-//   flex: 1
-// })

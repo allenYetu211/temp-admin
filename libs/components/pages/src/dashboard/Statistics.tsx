@@ -1,18 +1,16 @@
-import { UCard, COLOR } from '@beginalive/components/ui';
-import styled from '@emotion/styled';
+/*
+ * @Date: 2022-10-15 21:50:27
+ * @LastEditTime: 2022-10-20 23:36:29
+ */
+import { UCard } from '@beginalive/components/ui';
 
 
 export const Statistics = () => {
   return (
     <>
-      <CardUI bordered={false}>
+      <UCard>
         <>21321</>
-      </CardUI>
+      </UCard>
     </>
   )
 }
-
-const CardUI = styled(UCard)({
-  boxShadow: `${COLOR.sdc} 5px 12px 12px`,
-  background: `linear-gradient(120deg, ${COLOR.bbc} 0%, ${COLOR.fbc} 100%)`,
-})

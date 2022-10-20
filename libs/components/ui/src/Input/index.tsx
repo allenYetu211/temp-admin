@@ -10,12 +10,15 @@ interface InputCompProps extends InputProps { }
 
 
 const InputComp: FC<InputCompProps> = (props) => {
-
   const { size = 'middle', ...other } = props
   return (
     <InputUI {...other} size={size} />
   )
 }
+
+
+
+
 const InputUI = styled(Input)({
   '.ant-input-prefix': {
     marginRight: '10px'
@@ -24,5 +27,7 @@ const InputUI = styled(Input)({
     fontSize: '12px'
   }
 })
+
+export const UTextArea = Input.TextArea
 
 export default InputComp

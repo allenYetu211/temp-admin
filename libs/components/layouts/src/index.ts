@@ -4,3 +4,4 @@
  */
 export * from './BeginContainer';
 export * from './BeginSlider'
+export * from './ArticleContainer'

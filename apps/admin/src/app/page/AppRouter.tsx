@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-15 19:33:41
- * @LastEditTime: 2022-10-15 21:27:32
+ * @LastEditTime: 2022-10-20 23:38:50
  */
 /*
  * @Date: 2022-09-20 12:02:43
@@ -8,16 +8,18 @@
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { css, Global } from '@emotion/react';
 import { COLOR } from '@beginalive/components/ui'
 
+import { AppContainer } from '../page/AppContainer'
 import { LoginPage } from '../page/login'
 import { DashboardPage } from '../page/dashboard'
-import { ArticlePage } from '../page/article'
 import { TagsPage } from '../page/tags'
 
-import { AppContainer } from '../page/AppContainer'
+import { ArticleContainer } from './ArticleContainer'
+import { ArticleListPage } from './articleList'
+import { ArticleWritePage } from './articleWrite'
 
 export function AppRouter() {
   return (
@@ -31,9 +33,12 @@ export function AppRouter() {
         <Route path="/" element={<LoginPage />} />
 
         <Route element={<AppContainer />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/article" element={<ArticlePage />} />
-          <Route path="/tags" element={<TagsPage />} />
+          <Route path="/Dashboard" element={<DashboardPage />} />
+          <Route element={<ArticleContainer />} >
+            <Route path="ArticleList" element={<ArticleListPage />} />
+            <Route path="ArticleWrite" element={<ArticleWritePage />} />
+          </Route>
+          <Route path="/Tags" element={<TagsPage />} />
         </Route>
 
       </Routes>

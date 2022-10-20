@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-11 22:58:07
- * @LastEditTime: 2022-10-15 17:14:49
+ * @LastEditTime: 2022-10-21 00:30:31
  */
 
 import { FC, PropsWithChildren, useImperativeHandle } from 'react'
@@ -14,15 +14,16 @@ interface FormCompoProps {
     label: string
     name: string
     node: JSX.Element
-    rules: Rule[],
+    rules?: Rule[],
     initialValue?: any
   }[],
+  showLabel?: boolean
   CRef: React.MutableRefObject<any>,
   onFinish: (value: any) => void
 }
 
 const FormComp: FC<PropsWithChildren<FormCompoProps>> = (props) => {
-  const { children, columns, CRef, onFinish, ...other } = props
+  const { children, columns, CRef, showLabel, onFinish, ...other } = props
   const [form] = Form.useForm();
 
   useImperativeHandle(CRef, () => ({
@@ -37,7 +38,12 @@ const FormComp: FC<PropsWithChildren<FormCompoProps>> = (props) => {
         {
           columns.map((item) => {
             return (
-              <Form.Item name={item.name} rules={item.rules} key={item.name} initialValue={item.initialValue}>
+              <Form.Item
+                label={showLabel ? <>{item.label}</> : null}
+                name={item.name}
+                rules={item.rules}
+                key={item.name}
+                initialValue={item.initialValue}>
                 {item.node}
               </Form.Item>
             )

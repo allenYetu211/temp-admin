@@ -1,10 +1,6 @@
 /*
  * @Date: 2022-10-15 19:52:59
- * @LastEditTime: 2022-10-15 22:33:12
- */
-/*
- * @Date: 2022-10-15 19:52:59
- * @LastEditTime: 2022-10-15 19:55:51
+ * @LastEditTime: 2022-10-20 23:42:29
  */
 import { FC, PropsWithChildren } from "react"
 import styled from '@emotion/styled';
@@ -12,14 +8,19 @@ import { UMenu, COLOR, UAvatar } from '@beginalive/components/ui'
 import type { UMenuProps } from '@beginalive/components/ui'
 import { DashboardOutlined, TagOutlined, FileTextOutlined } from '@ant-design/icons'
 import { useRouter } from '@beginalive/tools'
+import { MenuItem } from '../enum'
 
 
-// type MenuItem = Required<UMenuProps>['items'][number];
 
 const items: UMenuProps['items'] = [
-  { label: 'dashboard', key: 'dashboard', icon: <DashboardOutlined /> },
-  { label: '标签', key: 'tags', icon: <TagOutlined /> },
-  { label: '文章', key: 'article', icon: <FileTextOutlined /> },
+  { label: MenuItem['Dashboard'], key: 'Dashboard', icon: <DashboardOutlined /> },
+  { label: MenuItem['Tags'], key: 'Tags', icon: <TagOutlined /> },
+  {
+    label: MenuItem['Article'], key: 'Article', icon: <FileTextOutlined />, children: [
+      { label: MenuItem['ArticleList'], key: 'ArticleList' },
+      { label: MenuItem['ArticleWrite'], key: 'ArticleWrite' }
+    ]
+  },
 ];
 
 interface BeginSliderCompProps {
