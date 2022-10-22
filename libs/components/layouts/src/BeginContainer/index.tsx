@@ -21,4 +21,8 @@ const Container = styled('div')({
   borderTopLeftRadius: '50px',
   borderBottomLeftRadius: '50px',
   backgroundColor: COLOR.cbc,
+  height: '100vh',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column'
 })

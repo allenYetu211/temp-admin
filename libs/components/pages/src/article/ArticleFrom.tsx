@@ -1,11 +1,14 @@
 /*
  * @Date: 2022-10-20 23:45:32
- * @LastEditTime: 2022-10-21 00:30:10
+ * @LastEditTime: 2022-10-22 20:24:49
  */
 
 import { useRef } from 'react'
-import { UForm, UInput, UTextArea, UTag } from '@beginalive/components/ui'
+import { UForm, UInput, UTextArea, UTag, URow, UCol } from '@beginalive/components/ui'
 import { useArticle } from './use-article'
+import { EditorContainer } from './EditorContainer'
+import styled from '@emotion/styled';
+
 
 export const ArticleFromComp = () => {
 
@@ -30,10 +33,13 @@ export const ArticleFromComp = () => {
         </>
       )
     },
-    {
-      name: 'content', label: '内容',
-      node: <UInput />
-    }
+    // {
+    //   name: 'content', label: '内容',
+    //   node: <EditorContainer />,
+    //   styles: {
+    //     flex: 1
+    //   }
+    // }
   ])
 
   const {
@@ -43,7 +49,16 @@ export const ArticleFromComp = () => {
 
   return (
     <>
-      <UForm showLabel={true} columns={current} CRef={childrenRef} onFinish={handleSubmitFinish} />
+      <FormContainer showLabel={true} columns={current} CRef={childrenRef} onFinish={handleSubmitFinish} />
+      <EditorContainer />
     </>
   )
 }
+
+
+const FormContainer = styled(UForm)({
+  // display: 'flex',
+  // flexDirection: 'column',
+  // height: '100%'
+})
+

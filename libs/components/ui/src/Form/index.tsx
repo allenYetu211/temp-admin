@@ -15,7 +15,8 @@ interface FormCompoProps {
     name: string
     node: JSX.Element
     rules?: Rule[],
-    initialValue?: any
+    initialValue?: any,
+    styles?: React.CSSProperties
   }[],
   showLabel?: boolean
   CRef: React.MutableRefObject<any>,
@@ -43,7 +44,9 @@ const FormComp: FC<PropsWithChildren<FormCompoProps>> = (props) => {
                 name={item.name}
                 rules={item.rules}
                 key={item.name}
-                initialValue={item.initialValue}>
+                initialValue={item.initialValue}
+                style={item.styles}
+              >
                 {item.node}
               </Form.Item>
             )

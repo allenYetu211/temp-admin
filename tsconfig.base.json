@@ -20,6 +20,9 @@
       "@beginalive/components/layouts": [
         "libs/components/layouts/src/index.ts"
       ],
+      "@beginalive/components/markdown": [
+        "libs/components/markdown/src/index.ts"
+      ],
       "@beginalive/components/pages": ["libs/components/pages/src/index.ts"],
       "@beginalive/components/ui": ["libs/components/ui/src/index.ts"],
       "@beginalive/fetch": ["libs/fetch/src/index.ts"],
