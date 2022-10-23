@@ -1,32 +1,55 @@
 /*
  * @Date: 2022-10-22 19:42:49
- * @LastEditTime: 2022-10-22 20:33:18
+ * @LastEditTime: 2022-10-23 10:58:17
  */
 
-import { URow, UCol } from '@beginalive/components/ui'
+import { useCallback, useRef, useState } from 'react'
 import { MarkdownRenderComp, MarkdownInputComp } from '@beginalive/components/markdown'
 import styled from '@emotion/styled';
 import { COLOR } from '@beginalive/components/ui';
+import { EditorToolsContainer } from './EditorToolsContainer'
+
 
 export const EditorContainer = () => {
-  return (
-    <Container>
-      <InputContainer>
-        <MarkdownInputComp />
-      </InputContainer>
+  const [hiddenRenderContainer, setHiddenRenderContainer] = useState<boolean>(true)
+  const handleHiddenRenderContainer = useCallback((value: boolean) => {
+    setHiddenRenderContainer(value)
+  }, [])
 
-      <RenderContainer>
-        <MarkdownRenderComp />
-      </RenderContainer>
+  const EditorRef = useRef<HTMLDivElement>(null)
+
+
+
+  return (
+    <Container ref={EditorRef}>
+
+      <EditorToolsContainer
+        handleHiddenRenderContainer={handleHiddenRenderContainer}
+        fullTargetElement={EditorRef}
+      />
+
+      <EditorContentContainer >
+        <InputContainer id='InputContainer'>
+          <MarkdownInputComp />
+        </InputContainer>
+
+        <RenderContainer hide={hiddenRenderContainer} id='RenderContainer'>
+          <MarkdownRenderComp />
+        </RenderContainer>
+
+      </EditorContentContainer>
     </Container>
   )
 }
 
 
+
 const InputContainer = styled('div')({
-  height: '100%',
+  height: '530px',
+  overflow: 'auto',
   flex: 1,
   padding: '10px',
+
   'textarea': {
     border: 'none',
     padding: 0,
@@ -42,11 +65,15 @@ const InputContainer = styled('div')({
 })
 
 
-const RenderContainer = styled('div')({
-  height: '100%',
-  flex: 1,
-  padding: '10px',
-  borderLeft: `1px solid ${COLOR.border_co}`
+const RenderContainer = styled('div')((props: { hide: boolean }) => {
+  const { hide } = props
+  return {
+    display: hide ? 'none' : 'flex',
+    height: '520px',
+    overflow: 'auto',
+    flex: 1,
+    padding: '10px'
+  }
 })
 
 const Container = styled('div')({
@@ -54,16 +81,24 @@ const Container = styled('div')({
   border: `1px solid ${COLOR.border_co}`,
   display: 'flex',
   flex: 1,
-  ':hover': {
-    border: `1px solid ${COLOR.mc}`,
-  },
-  ':active': {
-    border: `1px solid ${COLOR.mc}`,
-  },
-  ':focus': {
-    border: `1px solid ${COLOR.mc}`,
+  flexDirection: 'column',
+  ':fullscreen': {
+    height: '100vh',
+    '#InputContainer' : {
+      height: '100vh'
+    },
+
+    'RenderContainer': {
+      height: '100vh'
+    },
   },
 
 
 })
 
+
+
+const EditorContentContainer = styled('div')({
+  display: 'flex',
+  flex: 1,
+})

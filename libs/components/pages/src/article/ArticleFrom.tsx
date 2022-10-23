@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-20 23:45:32
- * @LastEditTime: 2022-10-22 20:24:49
+ * @LastEditTime: 2022-10-23 10:58:01
  */
 
 import { useRef } from 'react'
@@ -23,22 +23,15 @@ export const ArticleFromComp = () => {
       rules: [{ required: true, message: '输入描述' }],
       node: <UTextArea placeholder='文章描述' />
     },
-    {
-      name: 'tag', label: '标签',
-      node: (
-        <>
-          <UTag> 1 </UTag>
-          <UTag> 2</UTag>
-          <UTag> 3 </UTag>
-        </>
-      )
-    },
     // {
-    //   name: 'content', label: '内容',
-    //   node: <EditorContainer />,
-    //   styles: {
-    //     flex: 1
-    //   }
+    //   name: 'tag', label: '标签',
+    //   node: (
+    //     <>
+    //       <UTag> 1 </UTag>
+    //       <UTag> 2</UTag>
+    //       <UTag> 3 </UTag>
+    //     </>
+    //   )
     // }
   ])
 
@@ -57,8 +50,5 @@ export const ArticleFromComp = () => {
 
 
 const FormContainer = styled(UForm)({
-  // display: 'flex',
-  // flexDirection: 'column',
-  // height: '100%'
 })
 

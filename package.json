@@ -10,12 +10,17 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@codemirror/lang-markdown": "^6.0.2",
+    "@codemirror/language-data": "^6.1.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/base": "5.0.0-alpha.100",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@types/react-syntax-highlighter": "^15.5.5",
+    "@uiw/codemirror-theme-atomone": "^4.12.4",
+    "@uiw/react-codemirror": "^4.12.4",
     "antd": "^4.23.4",
     "clsx": "^1.2.1",
     "core-js": "^3.6.5",
@@ -24,6 +29,7 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "6.3.0",
+    "react-syntax-highlighter": "^15.5.0",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "remark-gfm": "^3.0.1",
@@ -35,7 +41,6 @@
   },
   "devDependencies": {
     "@nestjs/schematics": "^9.0.0",
-    "tslib": "^2.3.0",
     "@nestjs/testing": "^9.0.0",
     "@nrwl/cli": "14.7.6",
     "@nrwl/cypress": "14.7.6",
@@ -73,6 +78,7 @@
     "react-test-renderer": "18.2.0",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
     "typescript": "~4.8.2"
   }
 }

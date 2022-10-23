@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-20 23:28:57
- * @LastEditTime: 2022-10-22 19:58:00
+ * @LastEditTime: 2022-10-23 09:32:40
  */
 import { UCard, UForm } from '@beginalive/components/ui'
 import { ArticleFromComp } from './ArticleFrom'

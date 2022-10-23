@@ -13,9 +13,21 @@
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Tahoma,
         PingFang SC, Microsoft Yahei, Arial, Hiragino Sans GB, sans-serif,
-        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important;
     /* prevent page shaking when scroll show or hide*/
     padding-left: calc(100vw - 100%);
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 *,
