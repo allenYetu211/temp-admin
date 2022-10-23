@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-22 19:42:49
- * @LastEditTime: 2022-10-23 10:58:17
+ * @LastEditTime: 2022-10-23 18:43:36
  */
 
 import { useCallback, useRef, useState } from 'react'
@@ -17,6 +17,7 @@ export const EditorContainer = () => {
   }, [])
 
   const EditorRef = useRef<HTMLDivElement>(null)
+  const RenderRef = useRef<HTMLDivElement>(null)
 
 
 
@@ -26,6 +27,7 @@ export const EditorContainer = () => {
       <EditorToolsContainer
         handleHiddenRenderContainer={handleHiddenRenderContainer}
         fullTargetElement={EditorRef}
+        renderElement={RenderRef}
       />
 
       <EditorContentContainer >
@@ -33,7 +35,7 @@ export const EditorContainer = () => {
           <MarkdownInputComp />
         </InputContainer>
 
-        <RenderContainer hide={hiddenRenderContainer} id='RenderContainer'>
+        <RenderContainer ref={RenderRef} hide={hiddenRenderContainer} id='RenderContainer'>
           <MarkdownRenderComp />
         </RenderContainer>
 
@@ -49,7 +51,6 @@ const InputContainer = styled('div')({
   overflow: 'auto',
   flex: 1,
   padding: '10px',
-
   'textarea': {
     border: 'none',
     padding: 0,
@@ -72,7 +73,8 @@ const RenderContainer = styled('div')((props: { hide: boolean }) => {
     height: '520px',
     overflow: 'auto',
     flex: 1,
-    padding: '10px'
+    padding: '10px',
+    background: '#2e3441',
   }
 })
 
@@ -88,7 +90,7 @@ const Container = styled('div')({
       height: '100vh'
     },
 
-    'RenderContainer': {
+    '#RenderContainer': {
       height: '100vh'
     },
   },

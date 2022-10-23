@@ -1,30 +1,54 @@
 /*
  * @Date: 2022-10-23 09:38:37
- * @LastEditTime: 2022-10-23 10:04:39
+ * @LastEditTime: 2022-10-23 18:38:19
  */
-
+import { cloneElement } from 'react';
 import styled from '@emotion/styled';
 import { COLOR } from '@beginalive/components/ui';
-import { FullscreenOutlined, FullscreenExitOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons'
 import { useState, FC } from 'react';
 import { toggleFullscreen } from '@beginalive/tools'
+import {
+  FullscreenOutlined,
+  FullscreenExitOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
+  FileImageOutlined
+} from '@ant-design/icons'
+
+import { createArticleImage, saveImages } from '@beginalive/tools'
+// import { Modal } from 'antd'
+
 
 interface EditorToolsContainerProps {
   handleHiddenRenderContainer: (state: boolean) => void;
   fullTargetElement: React.RefObject<HTMLDivElement>
+  renderElement: React.RefObject<HTMLElement>
 }
 
 export const EditorToolsContainer: FC<EditorToolsContainerProps> = (props): JSX.Element => {
-  const { handleHiddenRenderContainer, fullTargetElement } = props
+  const { handleHiddenRenderContainer, fullTargetElement, renderElement } = props
 
   const handleFullElement = (state: boolean) => {
     toggleFullscreen(fullTargetElement.current, state)
+  }
+
+  const handleCreateImagesSave = async () => {
+    const { display } = getComputedStyle(renderElement.current!)
+    if (display == 'none') {
+      renderElement.current!.style.display = 'flex'
+    }
+    const ImagesCanvas = await createArticleImage(renderElement.current);
+    saveImages(ImagesCanvas)
   }
 
   return (
     <Container>
       <SwitchIconComp changeState={handleFullElement} DefaultIcon={<FullscreenOutlined />} ReplaceIcon={<FullscreenExitOutlined />} />
       <SwitchIconComp changeState={handleHiddenRenderContainer} DefaultIcon={<EyeInvisibleOutlined />} ReplaceIcon={<EyeOutlined />} />
+
+      <IconContainer onClick={handleCreateImagesSave}>
+        <FileImageOutlined />
+      </IconContainer>
     </Container>
   )
 }
