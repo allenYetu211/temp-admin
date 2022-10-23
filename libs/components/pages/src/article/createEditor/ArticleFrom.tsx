@@ -1,44 +1,46 @@
 /*
  * @Date: 2022-10-20 23:45:32
- * @LastEditTime: 2022-10-23 10:58:01
+ * @LastEditTime: 2022-10-23 22:15:35
  */
 
-import { useRef } from 'react'
-import { UForm, UInput, UTextArea, UTag, URow, UCol } from '@beginalive/components/ui'
-import { useArticle } from './use-article'
+import { FC, useRef } from 'react'
+import { UForm, UInput, UTextArea } from '@beginalive/components/ui'
 import { EditorContainer } from './EditorContainer'
 import styled from '@emotion/styled';
 
+// import { useAtom } from 'jotai'
+// import { ArticleContent } from '@beginalive/components/markdown'
 
-export const ArticleFromComp = () => {
 
+interface ArticleFromCompProps {
+  childrenRef: React.MutableRefObject<any>,
+  handleSubmitFinish: (value: any) => void;
+}
+
+export const ArticleFromComp: FC<ArticleFromCompProps> = (props) => {
+
+
+  const { childrenRef, handleSubmitFinish } = props
   const { current } = useRef([
     {
       name: 'title', label: '标题',
       rules: [{ required: true, message: '文章标题' }],
-      node: <UInput placeholder='文章标题' />
+      node: <UInput placeholder='文章标题' />,
     },
     {
-      name: 'describe', label: '描述',
+      name: 'description', label: '描述',
       rules: [{ required: true, message: '输入描述' }],
-      node: <UTextArea placeholder='文章描述' />
+      node: <UTextArea placeholder='文章描述' />,
     },
     // {
     //   name: 'tag', label: '标签',
     //   node: (
     //     <>
-    //       <UTag> 1 </UTag>
-    //       <UTag> 2</UTag>
-    //       <UTag> 3 </UTag>
+    //       <UTag> tag </UTag>
     //     </>
     //   )
     // }
   ])
-
-  const {
-    childrenRef,
-    handleSubmitFinish
-  } = useArticle()
 
   return (
     <>

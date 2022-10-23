@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-12 00:21:51
- * @LastEditTime: 2022-10-15 17:19:02
+ * @LastEditTime: 2022-10-23 22:49:33
  */
 import { useRef } from 'react';
 import { FetchSingIn } from '@beginalive/fetch'
@@ -20,7 +20,7 @@ export function useLogin() {
   const handleSubmitFinish = async (value: { username: string, password: string }) => {
     try {
       const result = await FetchSingIn(value)
-      localStorage.setItem('Authorization', `Bearer ${result.access_token}`)
+      localStorage.setItem('Authorization', `Bearer ${result.accessToken}`)
       navigate('/dashboard')
     } catch (e: unknown) {
       const error = e as any

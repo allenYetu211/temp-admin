@@ -1,9 +1,9 @@
 /*
  * @Date: 2022-09-28 00:25:59
- * @LastEditTime: 2022-10-14 00:40:38
+ * @LastEditTime: 2022-10-23 22:42:32
  */
 
-import { API, ResultType, MethodType } from './interface'
+import { API, MethodType } from './interface'
 
 
 class Fetch {
@@ -11,8 +11,8 @@ class Fetch {
   constructor (baseAPI: string) {
     this.baseAPI = baseAPI;
   }
-  public FetchAction<URL extends keyof API>(url: URL, method: MethodType, body: any): Promise<ResultType[URL]> {
-    return this[method](url, body)
+  public FetchAction<URL extends keyof API>(url: URL, method: MethodType = 'get', body?: any, marge?: string): Promise<API[URL]['data']> {
+    return this[method](url, body, marge)
   }
 
 
@@ -20,15 +20,20 @@ class Fetch {
   public async get<URL extends keyof API>(
     url: URL,
     param?: { [k in string]: any },
-  ): Promise<ResultType[URL]> {
-    const urlAPI: string = param ? `${url}?${new URLSearchParams(param)}` : url;
+    marge?: string
+  ): Promise<API[URL]['data']> {
+    const urlAPI: string = marge ? `${url}/${marge}` : param ? `${url}?${new URLSearchParams(param)}` : url;
     const { data } = await this.baseFetch(urlAPI);
     return data
   }
 
 
 
-  public async post<URL extends keyof API>(url: URL, body: any): Promise<ResultType[URL]> {
+  public async post<URL extends keyof API>(
+    url: URL,
+    body: any,
+    marge?: string
+  ): Promise<API[URL]['data']> {
     const { data } = await this.baseFetch(url, {
       method: 'POST',
       headers: {
@@ -37,7 +42,23 @@ class Fetch {
       body: JSON.stringify(body),
       ...body,
     });
+    return data
+  }
 
+
+  public async put<URL extends keyof API>(
+    url: URL,
+    body: any,
+    marge?: string
+  ): Promise<API[URL]['data']> {
+    const urlAPI: string = marge ? `${url}/${marge}` : url;
+    const { data } = await this.baseFetch(urlAPI, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(body),
+    });
     return data
   }
 
@@ -46,7 +67,8 @@ class Fetch {
   public async delete<URL extends keyof API>(
     url: URL,
     param?: { [k in string]: any },
-  ): Promise<ResultType[URL]> {
+    marge?: string
+  ): Promise<API[URL]['data']> {
 
     const urlAPI: string = param ? `${url}?${new URLSearchParams(param)}` : url;
     const { data } = await this.baseFetch(urlAPI, {
@@ -55,7 +77,6 @@ class Fetch {
         'Content-Type': 'application/json; charset=utf-8',
       },
     });
-
     return data
   }
 
@@ -67,7 +88,6 @@ class Fetch {
       },
     },
   ): Promise<API[URL]> {
-
     if (config?.headers) {
       Object.assign(config.headers, {
         Authorization: localStorage.getItem('Authorization'),
@@ -79,13 +99,7 @@ class Fetch {
     if (res.ok) {
       return await res.json();
     }
-
-    // if (res.status === 401) {
-    //   location.hash = '/login';
-    // }
-
     throw new Exception(res.status, res.json())
-
   }
 }
 

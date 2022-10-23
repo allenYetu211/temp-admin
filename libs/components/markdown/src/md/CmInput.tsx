@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-23 07:38:41
- * @LastEditTime: 2022-10-23 09:30:19
+ * @LastEditTime: 2022-10-23 23:06:41
  */
 import { useCallback } from 'react'
 import CodeMirror from '@uiw/react-codemirror';
@@ -16,7 +16,10 @@ export const MarkdownInputComp = () => {
   const [container, setContainer] = useAtom(StateMdContainer)
 
   const onChange = useCallback((value: string, viewUpdate: any) => {
-    setContainer(value)
+    setContainer(() => {
+      localStorage.setItem('articleContent', value)
+      return value
+    })
   }, []);
 
   return <CodeMirror

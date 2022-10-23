@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-15 19:33:41
- * @LastEditTime: 2022-10-20 23:38:50
+ * @LastEditTime: 2022-10-23 21:33:58
  */
 /*
  * @Date: 2022-09-20 12:02:43
@@ -37,6 +37,7 @@ export function AppRouter() {
           <Route element={<ArticleContainer />} >
             <Route path="ArticleList" element={<ArticleListPage />} />
             <Route path="ArticleWrite" element={<ArticleWritePage />} />
+            <Route path="ArticleWrite/:id" element={<ArticleWritePage />} />
           </Route>
           <Route path="/Tags" element={<TagsPage />} />
         </Route>

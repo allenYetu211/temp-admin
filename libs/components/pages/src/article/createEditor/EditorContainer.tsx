@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-22 19:42:49
- * @LastEditTime: 2022-10-23 18:43:36
+ * @LastEditTime: 2022-10-23 23:03:12
  */
 
 import { useCallback, useRef, useState } from 'react'
@@ -47,7 +47,7 @@ export const EditorContainer = () => {
 
 
 const InputContainer = styled('div')({
-  height: '530px',
+  height: '600px',
   overflow: 'auto',
   flex: 1,
   padding: '10px',
@@ -70,7 +70,7 @@ const RenderContainer = styled('div')((props: { hide: boolean }) => {
   const { hide } = props
   return {
     display: hide ? 'none' : 'flex',
-    height: '520px',
+    height: '600px',
     overflow: 'auto',
     flex: 1,
     padding: '10px',
